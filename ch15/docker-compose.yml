@@ -1,0 +1,18 @@
+# ATTENTION: On newer versions of Docker for Desktop Compose for Docker for Desktop
+#            needs to be installed manually. Please follow these instructions:
+#            https://github.com/docker/compose-on-kubernetes#install-compose-on-kubernetes-on-docker-desktop
+# NOTE: At the time of writing (2020-12-27) the compose client for Kubernetes seems to be broken 
+#
+version: "3.8"
+services:
+  web:
+    image: fundamentalsofdocker/ch11-web:2.0
+    ports:
+      - 3000:3000
+  db:
+    image: fundamentalsofdocker/ch11-db:2.0
+    volumes:
+      - pets-data:/var/lib/postgresql/data
+
+volumes:
+  pets-data:
